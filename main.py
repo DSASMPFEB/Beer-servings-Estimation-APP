@@ -8,12 +8,13 @@ import seaborn as sns
 
 st.title("Beer Servings Estimation App")
 
-df = pd.read_csv("data/beer-servings.csv") 
+df = pd.read_csv("data/beer-servings.csv")
 
 st.subheader("Alcohol Consumption Overview")
 
 avg_servings = df.groupby("continent")[
-    ["beer_servings", "wine_servings", "spirit_servings"]].mean()
+    ["beer_servings", "wine_servings", "spirit_servings"]
+].mean()
 
 st.markdown("**Average Alcohol Servings by Continent**")
 st.bar_chart(avg_servings)
@@ -21,7 +22,8 @@ st.bar_chart(avg_servings)
 
 fig, ax = plt.subplots()
 sns.scatterplot(
-    data=df, x="beer_servings", y="total_litres_of_pure_alcohol", hue="continent", ax=ax)
+    data=df, x="beer_servings", y="total_litres_of_pure_alcohol", hue="continent", ax=ax
+)
 st.markdown("**BEER SERVINGS vs TOTAL ALCOHOL CONSUMPTION**")
 st.pyplot(fig)
 
